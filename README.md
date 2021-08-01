@@ -1,6 +1,6 @@
 # Angular projects:
-- app-todo
-- app-blog
+- app-todo 
+- app-blog [a link](https://github.com/lthonny/Angular/tree/angular-app-blog)
 
 All the code for learning Angular technology and all projects that I write on the technology will be stored here.
 
