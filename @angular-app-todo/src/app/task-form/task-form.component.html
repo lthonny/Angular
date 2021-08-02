@@ -1,11 +1,14 @@
 <div>
-  <input type="text" 
-    class="form-control" 
-    placeholder="Title..."
-    >
-  <input type="text" 
-    class="form-control" 
-    placeholder="Text...">
+  <input type="text"
+         class="form-control"
+         placeholder="Title..."
+         [(ngModel)]="title"
+  >
+  <input type="text"
+         class="form-control"
+         placeholder="Text..."
+         [(ngModel)]="text"
+  >
 
-  <button class="btn">Add task</button>
+  <button (click)="addTask()" class="btn">Add task</button>
 </div>

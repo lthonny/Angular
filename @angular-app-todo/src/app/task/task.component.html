@@ -1,4 +1,14 @@
 <div class="task">
-  <h2>{{task.title}}</h2>
-  <p>{{task.text}}</p>
+  <input type="checkbox"
+         id="subscribeNews"
+         name="subscribe"
+         value="newsletter"
+  >
+
+  <div>
+    <h2>{{task.title}}</h2>
+    <p>{{task.text}}</p>
+  </div>
+
+  <button class="btn" (click)="removeTask()">&times;</button>
 </div>

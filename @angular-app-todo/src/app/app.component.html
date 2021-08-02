@@ -2,11 +2,15 @@
   <app-header></app-header>
 
   <div class="container">
-    <app-task-form></app-task-form>
-    <ng-container *ngFor="let t of tasks">
-      <app-task [task]="t"></app-task>
+    <app-task-form
+      (onAdd)="updateTasks($event)"
+    ></app-task-form>
+
+    <ng-container
+      *ngFor="let t of tasks">
+      <app-task [task]="t" (onRemove)="removeTask($event)"></app-task>
     </ng-container>
   </div>
 
-  <app-footer></app-footer>
+<!--  <app-footer></app-footer>-->
 </div>

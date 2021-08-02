@@ -2,4 +2,25 @@
   padding: 1rem;
   border: #ccc 1px dotted;
   margin: 0.7rem 0;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.btn {
+  display: inline-block;
+  background: #333333;
+  color: #fff;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
