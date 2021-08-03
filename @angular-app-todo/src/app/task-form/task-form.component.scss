@@ -15,7 +15,7 @@ textarea {
 }
 
 .btn {
-  display: inline-block;
+  // display: inline-block;
   background: #333333;
   color: #fff;
   padding: 0.4rem 1.3rem;
@@ -29,4 +29,14 @@ textarea {
   &:hover {
     opacity: 0.8;
   }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+
+.form-add-and-filteres {
+  display: flex;
+  justify-content: space-between;
 }

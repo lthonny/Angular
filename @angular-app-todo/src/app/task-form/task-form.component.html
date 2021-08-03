@@ -1,14 +1,16 @@
 <div>
-  <input type="text"
-         class="form-control"
-         placeholder="Title..."
-         [(ngModel)]="title"
-  >
-  <input type="text"
-         class="form-control"
-         placeholder="Text..."
-         [(ngModel)]="text"
-  >
+       <input type="text" class="form-control" placeholder="Title..." [(ngModel)]="title">
+       <input type="text" class="form-control" placeholder="Text..." [(ngModel)]="text">
 
-  <button (click)="addTask()" class="btn">Add task</button>
+       <div class="form-add-and-filteres">
+              <div>
+                     <button (click)="addTask()" class="btn">Add task</button>
+              </div>
+
+              <!-- <div>
+                     <button class="btn"> All </button>
+                     <button class="btn"> Completed </button>
+                     <button class="btn"> InCompleted </button>
+              </div> -->
+       </div>
 </div>
