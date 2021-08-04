@@ -31,4 +31,11 @@ export class AppComponent {
   removeTask(id: string) {
     this.tasks = this.tasks.filter(task => task.id !== id);
   }
+
+  checkBoxvalue(id: string) {
+    const index = this.tasks.findIndex(task => task.id === id);
+    this.tasks[index].status = !status;
+    console.log(this.tasks)
+  }
+
 }

@@ -26,6 +26,7 @@ export class TaskComponent implements OnInit,
   @Input()
   task!: Task;
   @Output() onRemove = new EventEmitter<string>();
+  @Output() statusChange = new EventEmitter<string>();
 
   constructor() {
     console.log('1-constructor');
@@ -64,14 +65,9 @@ export class TaskComponent implements OnInit,
   }
 
 
-  removeTask() {
-    this.onRemove.emit(this.task.id);
-  }
-
-
   toggleStatus: boolean = false;
-  checkCheckBoxvalue(event: any) {
-    console.log(event);
+  checkBoxvalue() {
+    this.statusChange.emit(this.task.id);
   }
 
 }

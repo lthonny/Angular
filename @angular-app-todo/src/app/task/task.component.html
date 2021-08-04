@@ -1,13 +1,9 @@
 <div class="task">
-  <!-- <input type="checkbox" class="toggle" id="subscribeNews" name="subscribe" value="newsletter"
-    (change)="checkCheckBoxvalue($event)"> -->
-  <!-- <label for="subscribeNews"></label> -->
-
   <div class="task-content">
     <h2>{{task.title}}</h2>
     <p>{{task.text}}</p>
   </div>
 
-  <button class="btn-delete" (click)="removeTask()">Delete</button>
-  <button class="btn">Execute</button>
+  <button class="btn-delete" (click)="onRemove.emit(task.id)">Delete</button>
+  <button class="btn" (click)="checkBoxvalue()">Execute</button>
 </div>
