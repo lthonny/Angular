@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e2a510c-b540-45ee-8440-f91321bd1a3e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/@angular-app-todo/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@angular-app-todo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/app.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/footer/footer.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/footer/footer.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/header/header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/header/header.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/task-form/task-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/task-form/task-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/task-form/task-form.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/task-form/task-form.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/task-form/task-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/task-form/task-form.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/task/task.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/task/task.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/task/task.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/task/task.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/app/task/task.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/app/task/task.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/@angular-app-todo/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/@angular-app-todo/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +58,8 @@
       <updated>1627929093192</updated>
       <workItem from="1627929154463" duration="132000" />
       <workItem from="1627931083670" duration="5429000" />
+      <workItem from="1628198953546" duration="38000" />
+      <workItem from="1628372116009" duration="2784000" />
     </task>
     <servers />
   </component>
@@ -72,5 +76,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

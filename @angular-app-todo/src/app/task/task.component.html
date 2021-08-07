@@ -1,9 +1,9 @@
 <div class="task">
   <div class="task-content">
-    <h2>{{task.title}}</h2>
+    <!-- <h2>{{task.title}}</h2> -->
     <p>{{task.text}}</p>
   </div>
 
   <button class="btn-delete" (click)="onRemove.emit(task.id)">Delete</button>
-  <button class="btn" (click)="checkBoxvalue()">Execute</button>
+  <button class="btn" [style.color]="toggleStatus ? 'blue' : 'red'" (click)="checkBoxvalue($event)">Execute</button>
 </div>

@@ -6,6 +6,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &:hover {
+    transition: 0.8s;
+    border: 1px dotted #4257b2;
+    cursor: pointer;
+  }
 }
 
 

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
 
-export interface Task {
+export interface ITask {
   id: string,
-  title: string,
   text: string,
   status: boolean,
   order: number
@@ -16,15 +15,17 @@ export interface Task {
 })
 export class AppComponent {
 
-  tasks: Task[] = [
-    { id: 'asdasd', title: 'JavaScript', text: 'Text...', status: false, order: 1 }
+  search = '';
+
+  tasks: ITask[] = [
+    { id: 'asdasd', text: 'Text...', status: false, order: 1 }
   ]
 
   constructor() {
     console.log(this.tasks);
   }
 
-  updateTasks(task: Task) {
+  updateTasks(task: ITask) {
     this.tasks.unshift(task);
   }
 

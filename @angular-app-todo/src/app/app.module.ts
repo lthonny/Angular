@@ -8,6 +8,7 @@ import { TaskComponent } from './task/task.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TaskFormComponent } from './task-form/task-form.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TaskFormComponent } from './task-form/task-form.component';
     TaskComponent,
     HeaderComponent,
     FooterComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

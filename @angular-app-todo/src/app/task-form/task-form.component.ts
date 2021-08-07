@@ -1,5 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Task} from "../app.component";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ITask } from "../app.component";
 
 @Component({
   selector: 'app-task-form',
@@ -8,9 +8,9 @@ import {Task} from "../app.component";
 })
 export class TaskFormComponent implements OnInit {
 
-  @Output() onAdd: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() onAdd: EventEmitter<ITask> = new EventEmitter<ITask>();
 
-  title: string = '';
+  // title: string = '';
   text: string = '';
 
   constructor() {
@@ -21,16 +21,15 @@ export class TaskFormComponent implements OnInit {
 
   addTask() {
     const id = Math.random().toString(36).substr(2, 9);
-    if (this.title.trim() && this.text.trim()) {
-      const task: Task = {
+    if (this.text.trim()) {
+      const task: ITask = {
         id: id,
-        title: this.title,
         text: this.text,
         status: false,
         order: 5
       }
       this.onAdd.emit(task);
-      this.title = this.text = '';
+      this.text = '';
     }
   }
 }

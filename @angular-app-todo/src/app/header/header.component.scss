@@ -1,21 +1,24 @@
 .header {
   color: #fff;
-  background-color: #1976d2;
+  background-color: #4257b2;
   padding: 0px 15px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  position: sticky;
+  top: 0; 
+
   h1 {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 
 .btn {
   display: inline-block;
-  background-color: #1976d2;
-  color: #fff;
+  background: none;
+  color: #cbd1ea;
   padding: 0.5rem 1.3rem;
   font-size: 1rem;
   font-weight: 500;
@@ -27,10 +30,43 @@
   outline: none;
 
   &:hover {
-    background-color: #3b8ad9;
+    color: #fff;
+  }
+}
+
+.btn-sign {
+   display: inline-block;
+  background: none;
+  padding: 0.5rem 1.3rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+
+
+  color: #6870a1;
+  background-color: #f7d55f;
+
+    &:hover {
+      opacity: 0.9;
+    // background-color: #3b8ad9;
   }
 }
 
 .active {
   border: 1px solid #000;
+}
+
+
+.search {
+  border: none;
+  border-radius: 10px;
+  background: #5568ba;
+  padding: 0.5rem 1.3rem;
+
+  margin-right: 30px;
 }

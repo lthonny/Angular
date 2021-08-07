@@ -9,7 +9,7 @@ import {
   AfterContentInit,
   OnDestroy, Output, EventEmitter
 } from '@angular/core';
-import { Task } from '../app.component';
+import { ITask } from '../app.component';
 
 @Component({
   selector: 'app-task',
@@ -24,7 +24,7 @@ export class TaskComponent implements OnInit,
   OnDestroy {
 
   @Input()
-  task!: Task;
+  task!: ITask;
   @Output() onRemove = new EventEmitter<string>();
   @Output() statusChange = new EventEmitter<string>();
 
@@ -66,7 +66,8 @@ export class TaskComponent implements OnInit,
 
 
   toggleStatus: boolean = false;
-  checkBoxvalue() {
+  checkBoxvalue(event: any) {
+    // this.toggleStatus = this.toggleStatus;
     this.statusChange.emit(this.task.id);
   }
 
