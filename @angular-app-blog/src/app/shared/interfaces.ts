@@ -10,7 +10,7 @@ export interface IFbAuthResponse {
 }
 
 export interface IPost {
-  id?: string | number,
+  id?: string,
   title: string,
   text: number | string,
   author: string,
