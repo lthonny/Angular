@@ -1,15 +1,1 @@
-<div class="app-todo">
-  <app-header></app-header>
-
-  <div class="container">
-    <input type="text" [(ngModel)]="search" placeholder="Search task">
-
-    <app-task-form (onAdd)="updateTasks($event)"></app-task-form>
-
-    <ng-container *ngFor="let t of tasks | search: search">
-      <app-task [task]="t" (onRemove)="removeTask($event)" (statusChange)="checkBoxvalue($event)"></app-task>
-    </ng-container>
-  </div>
-
-  <!--  <app-footer></app-footer>-->
-</div>
+<router-outlet></router-outlet>

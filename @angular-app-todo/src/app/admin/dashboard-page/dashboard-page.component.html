@@ -1,0 +1,16 @@
+<div *ngIf="tasks.length; else loading">
+
+  <div class="form-control">
+    <input type="text" placeholder="Find post..." [(ngModel)]="searchTasks">
+  </div>
+
+  <div>
+  post
+  </div>
+
+</div>
+
+
+<ng-template #loading>
+  <p class="text-center">Loading in progress...</p>
+</ng-template>
