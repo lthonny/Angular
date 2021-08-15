@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ITask} from "../../shared/interfaces";
 import {TasksService} from "../tasks.service";
 import {Subscription} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-dashboard-page',
@@ -16,20 +17,31 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   taskSubscription!: Subscription;
 
   constructor(
-    private tasksService: TasksService
+    // public tasksService: TasksService
+    private http: HttpClient
   ) {
   }
 
   ngOnInit(): void {
-    this.taskSubscription = this.tasksService.getAll().subscribe(task => {
-      // this.tasks = task;
-      console.log(task)
-    });
+    // this.taskSubscription =
+    //   console.log(this.tasksService.getAll());
+      // .subscribe((response: any) => {
+    //   this.tasks = response;
+    //   console.log(this.tasks)
+    // });
+
+    // console.log(this.taskSubscription)
+
+    this.http.get('http://localhost:3000/tasks')
+      .subscribe((response: any)=> {
+        this.tasks = response
+        // console.log(response)
+      })
   }
 
   ngOnDestroy() {
-    if (this.taskSubscription) {
-      this.taskSubscription.unsubscribe();
-    }
+    // if (this.taskSubscription) {
+    //   this.taskSubscription.unsubscribe();
+    // }
   }
 }

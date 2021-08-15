@@ -1,12 +1,16 @@
-<div *ngIf="tasks.length; else loading">
+<!--<div *ngIf="tasks.length; else loading">-->
 
   <div class="form-control">
     <input type="text" placeholder="Find post..." [(ngModel)]="searchTasks">
   </div>
 
-  <div>
-  post
+  <div *ngFor="let task of tasks">
+    {{task.text}}
   </div>
+
+<!--</div>-->
+
+<div class="task">
 
 </div>
 
