@@ -5,10 +5,10 @@ export interface IUser {
 }
 
 export interface ITask {
-  id?: string | number,
-  title?: string,
+  id?: string,
+  title: string,
   text: string,
-  status: boolean,
-  date: Date,
-  order: number,
+  status?: boolean,
+  date?: any,
+  order?: number,
 }

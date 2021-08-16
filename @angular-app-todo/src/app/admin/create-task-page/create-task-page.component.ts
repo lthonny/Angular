@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ITask} from "../../shared/interfaces";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ITask } from "../../shared/interfaces";
+import { AlertService } from '../shared/services/alert-service';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-create-task-page',
@@ -21,9 +23,11 @@ export class CreateTaskPageComponent implements OnInit {
   });
 
   constructor(
+    private tasksService: TasksService,
+    private alert: AlertService
   ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
 
 
@@ -33,13 +37,18 @@ export class CreateTaskPageComponent implements OnInit {
     }
 
     const task: ITask = {
+      // id: 213
       title: this.form.value.title,
       text: this.form.value.text,
-      status: false,
-      date: new Date(),
-      order: 1
+      // status: false,
+      //   date: new Date(),
+      //   order: 1
     }
 
-    console.log('task', task);
+    this.tasksService.create(task)
+      .subscribe(() => {
+        this.form.reset();
+        this.alert.success('The post was created');
+      })
   }
 }

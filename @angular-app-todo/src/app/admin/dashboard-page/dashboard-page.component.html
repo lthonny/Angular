@@ -1,19 +1,33 @@
-<!--<div *ngIf="tasks.length; else loading">-->
-
-  <div class="form-control">
-    <input type="text" placeholder="Find post..." [(ngModel)]="searchTasks">
-  </div>
-
-  <div *ngFor="let task of tasks">
-    {{task.text}}
-  </div>
-
-<!--</div>-->
-
-<div class="task">
-
+<div class="form-control">
+  <input type="text" placeholder="Find post..." [(ngModel)]="searchTasks">
 </div>
 
+<div class="form-control">
+  <button class="btn btn-dark" (click)="filter('all')" (click)="toggleClass($event)">all</button>
+  <button class="btn btn-dark" (click)="filter('completed')" (click)="toggleClass($event)">completed</button>
+  <button class="btn btn-dark" (click)="filter('incompleted')" (click)="toggleClass($event)">incompleted</button>
+</div>
+
+<!-- <div *ngIf="!loading; else loading"> -->
+<div *ngIf="tasks.length; else noTodos">
+  <div class="card" *ngFor="let task of tasks | 
+    searchTasks: searchTasks | 
+    filterTasks: filterStatus">
+    <p>
+      <span [class.completed]="task.status">{{task.text | titlecase}}</span>
+      <span>
+        <button class="btn btn-danger" (click)="remove(task.id)">Удалить</button>
+        <button class="btn" (click)="completedTask(task.id, task.status)">Завершить</button>
+      </span>
+    </p>
+    <p class="edit" [routerLink]="['/admin', 'task', task.id, 'edit']">edit task</p>
+  </div>
+</div>
+
+<ng-template #noTodos>
+  <p>No tasks</p>
+</ng-template>
+<!-- </div> -->
 
 <ng-template #loading>
   <p class="text-center">Loading in progress...</p>

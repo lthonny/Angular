@@ -1,13 +1,12 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
   <h1>Create new task</h1>
 
-  <div class="form-control"
-       [ngClass]="{invalid: form.get('title')?.touched && form.get('title')?.invalid}">
+  <div class="form-control" [ngClass]="{invalid: form.get('title')?.touched && form.get('title')?.invalid}">
     <label for="title">Title task:</label>
     <input id="title" type="text" placeholder="title" formControlName="title">
     <div *ngIf="form.get('title')?.touched && form.get('title')?.invalid" class="validation">
       <small *ngIf="form.get('title')?.errors?.required">
-        Enter post text
+        Enter task text
       </small>
     </div>
   </div>
@@ -17,5 +16,5 @@
     <quill-editor format="text" formControlName="text"></quill-editor>
   </div>
 
-  <button type="submit" class="btn btn-block btn-dark" [disabled]="form.invalid">Create post</button>
+  <button type="submit" class="btn btn-block btn-dark" [disabled]="form.invalid">Create task</button>
 </form>

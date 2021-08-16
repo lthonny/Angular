@@ -1,5 +1,5 @@
-import {Pipe, PipeTransform} from "@angular/core";
-import {ITask} from "../../../shared/interfaces";
+import { Pipe, PipeTransform } from "@angular/core";
+import { ITask } from "../../../shared/interfaces";
 
 @Pipe({
   name: 'searchTasks'
@@ -11,7 +11,7 @@ export class SearchPipe implements PipeTransform {
     }
 
     return tasks.filter(task => {
-      // return task.title.toLowerCase().includes(search.toLowerCase());
+      return task.title.toLowerCase().includes(search.toLowerCase());
     })
   }
 }

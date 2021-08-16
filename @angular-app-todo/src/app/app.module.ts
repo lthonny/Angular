@@ -7,6 +7,8 @@ import { MainLayoutComponent } from './shared/components/main-layout/main-layout
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HeaderLayoutComponent } from './shared/components/header-layout/header-layout.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import { HomePageComponent } from './home-page/home-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

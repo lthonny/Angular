@@ -1,0 +1,32 @@
+.card {
+  padding: 1rem;
+  border: #ccc 1px dotted;
+  margin: 0.7rem 0;
+
+  p {
+    display: flex;
+    justify-content: space-between;
+
+    span.completed {
+      text-decoration: line-through;
+    }
+  }
+}
+
+p {
+  font-size: 1.5rem;
+
+  &.error {
+    color: red;
+  }
+}
+
+.edit {
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+    transition: 0.8s;
+  }
+}

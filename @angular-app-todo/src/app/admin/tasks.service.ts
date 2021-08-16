@@ -1,27 +1,41 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {ITask} from "../shared/interfaces";
-import {map, tap} from "rxjs/operators";
-import {environment} from "../../environments/environment";
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { ITask } from "../shared/interfaces";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class TasksService {
   constructor(
     private http: HttpClient
-  ) {}
+  ) { }
 
-  // getAll(): Observable<ITask[]> | Promise<ITask[]> {
-    // return this.http.get(`http://localhost:3000/tasks`);
-      // .pipe(map((response: { [key: string]: any }) => {
-      //   return Object
-      //     .keys(response)
-      //     .map(key => ({
-      //       ...response[key],
-      //       id: key,
-      //       date: new Date(response[key].date)
-      //     }))
-      // }))
-  // }
+  getAll(): Observable<ITask[]> {
+    return this.http
+      .get<ITask[]>(`http://localhost:3000/tasks`);
+  }
 
+  create(task: ITask) {
+    return this.http
+      .post<ITask>(`http://localhost:3000/tasks`, task);
+  }
+
+  completeTask(id: string, status: boolean): Observable<ITask> {
+    return this.http
+      .put<ITask>(`http://localhost:3000/tasks/${id}`, { status })
+  }
+
+  update(task: ITask) {
+    return this.http
+      .put<ITask>(`http://localhost:3000/tasks/4dmb2gl0m`, task);
+  }
+
+  getById(id: string): Observable<ITask> {
+    return this.http
+      .get<ITask>(`http://localhost:3000/tasks/${id}`);
+  }
+
+  remove(id: string): Observable<void> {
+    return this.http
+      .delete<void>(`http://localhost:3000/tasks/${id}`);
+  }
 }
