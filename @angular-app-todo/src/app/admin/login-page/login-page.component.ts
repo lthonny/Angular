@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import { ActivatedRoute, Router, Params } from "@angular/router";
-import {IUser} from "../../shared/interfaces";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+
+import { IUser } from "../../shared/interfaces";
 
 
 @Component({

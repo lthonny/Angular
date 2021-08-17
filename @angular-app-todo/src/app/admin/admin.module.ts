@@ -13,12 +13,14 @@ import { SearchPipe } from "./shared/pipes/search.pipe";
 import { AlertLayoutComponent } from './shared/components/alert-layout/alert-layout.component';
 import { AlertService } from "./shared/services/alert-service";
 import { FilterPipe } from "./shared/pipes/filter.pipe";
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    DragDropModule,
 
     SharedModule,
     RouterModule.forChild([

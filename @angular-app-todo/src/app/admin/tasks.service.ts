@@ -26,7 +26,12 @@ export class TasksService {
 
   update(task: ITask) {
     return this.http
-      .put<ITask>(`http://localhost:3000/tasks/4dmb2gl0m`, task);
+      .put<ITask>(`http://localhost:3000/tasks/${task.id}`, task);
+  }
+
+  updateOrder(tasks: ITask[]) {
+    return this.http
+      .post<ITask>(`http://localhost:3000/position/`, tasks);
   }
 
   getById(id: string): Observable<ITask> {

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { ErrorPageComponent } from "./error-page/error-page.component";
+import { ErrorPageComponent } from "./shared/components/error-page/error-page.component";
 import { HeaderLayoutComponent } from "./shared/components/header-layout/header-layout.component";
-import { HomePageComponent } from "./home-page/home-page.component";
+import { HomePageComponent } from "./home/home.component";
 
 const routes: Routes = [
   {

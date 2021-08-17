@@ -1,16 +1,21 @@
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import {QuillModule} from "ngx-quill";
+import { QuillModule } from "ngx-quill";
+import { ErrorPageComponent } from "./components/error-page/error-page.component";
 
 
 @NgModule({
-  imports: [HttpClientModule,
-  QuillModule.forRoot()],
+  declarations: [
+    ErrorPageComponent
+  ],
+  imports: [
+    HttpClientModule,
+    QuillModule.forRoot()
+  ],
   exports: [
     HttpClientModule,
-    QuillModule
+    QuillModule,
+    ErrorPageComponent
   ]
 })
-export class SharedModule {
-
-}
+export class SharedModule { }

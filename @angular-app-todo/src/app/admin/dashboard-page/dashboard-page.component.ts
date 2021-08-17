@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from "rxjs";
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+
 import { ITask } from "../../shared/interfaces";
 import { TasksService } from "../tasks.service";
-import { Subscription } from "rxjs";
 import { AlertService } from '../shared/services/alert-service';
 
 @Component({
@@ -25,25 +27,11 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   constructor(
     public tasksService: TasksService,
-    private alert: AlertService
-  ) {
-  }
+    private alertService: AlertService
+  ) { }
 
   ngOnInit() {
     this.fetchTasks();
-  }
-
-  toggleClass(event: Event | any) {
-    // if (this.filterActive) {
-    //   event.target.style.backgroundColor = 'red';
-
-    //   this.filterActive = false;
-    //   console.log('false');
-    // } else {
-    //   console.log('true');
-    //   this.filterActive = true;
-    //   event.target.style.backgroundColor = '';
-    // }
   }
 
   filter(filtered: string) {
@@ -59,18 +47,29 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
       });
   }
 
-  completedTask(id: any, status: any) {
+  completedTask(id: string, status: boolean) {
     this.completeTask = this.tasksService.completeTask(id, status)
       .subscribe(() => {
         this.fetchTasks();
       })
   }
 
-  // types
-  remove(id: any) {
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+    this.updatePositionDrops(this.tasks);
+  }
+
+  updatePositionDrops(tasks: ITask[]) {
+    return this.tasksService.updateOrder(tasks)
+      .subscribe(() => {
+        this.fetchTasks();
+      })
+  }
+
+  remove(id: string) {
     this.deleteSubscription = this.tasksService.remove(id).subscribe(() => {
       this.tasks = this.tasks.filter(task => task.id !== id);
-      this.alert.danger('Task has been deleted');
+      this.alertService.danger('Task has been deleted');
     })
   }
 

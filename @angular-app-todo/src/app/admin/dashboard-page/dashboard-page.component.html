@@ -3,24 +3,25 @@
 </div>
 
 <div class="form-control">
-  <button class="btn btn-dark" (click)="filter('all')" (click)="toggleClass($event)">all</button>
-  <button class="btn btn-dark" (click)="filter('completed')" (click)="toggleClass($event)">completed</button>
-  <button class="btn btn-dark" (click)="filter('incompleted')" (click)="toggleClass($event)">incompleted</button>
+  <button class="btn btn-dark" (click)="filter('all')">all</button>
+  <button class="btn btn-dark" (click)="filter('completed')">completed</button>
+  <button class="btn btn-dark" (click)="filter('incompleted')">incompleted</button>
 </div>
 
 <!-- <div *ngIf="!loading; else loading"> -->
 <div *ngIf="tasks.length; else noTodos">
-  <div class="card" *ngFor="let task of tasks | 
-    searchTasks: searchTasks | 
-    filterTasks: filterStatus">
-    <p>
-      <span [class.completed]="task.status">{{task.text | titlecase}}</span>
-      <span>
-        <button class="btn btn-danger" (click)="remove(task.id)">Удалить</button>
-        <button class="btn" (click)="completedTask(task.id, task.status)">Завершить</button>
-      </span>
-    </p>
-    <p class="edit" [routerLink]="['/admin', 'task', task.id, 'edit']">edit task</p>
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let task of tasks | searchTasks: searchTasks | filterTasks: filterStatus" cdkDrag>
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      <p>
+        <span [class.completed]="task.status">{{task.text | titlecase}}</span>
+        <span>
+          <button class="btn btn-danger" (click)="remove(task.id)">Удалить</button>
+          <button class="btn" (click)="completedTask(task.id, task.status)">Завершить</button>
+        </span>
+      </p>
+      <p class="edit" [routerLink]="['/admin', 'task', task.id, 'edit']">edit task</p>
+    </div>
   </div>
 </div>
 
@@ -32,3 +33,20 @@
 <ng-template #loading>
   <p class="text-center">Loading in progress...</p>
 </ng-template>
+
+<!-- <div *ngIf="!loading; else loading"> -->
+<!-- <div *ngIf="tasks.length; else noTodos">
+  <div cdkDropList class="card" *ngFor="let task of tasks | 
+    searchTasks: searchTasks | 
+    filterTasks: filterStatus" cdkDrag>
+    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+    <p>
+      <span [class.completed]="task.status">{{task.text | titlecase}}</span>
+      <span>
+        <button class="btn btn-danger" (click)="remove(task.id)">Удалить</button>
+        <button class="btn" (click)="completedTask(task.id, task.status)">Завершить</button>
+      </span>
+    </p>
+    <p class="edit" [routerLink]="['/admin', 'task', task.id, 'edit']">edit task</p>
+  </div>
+</div> -->

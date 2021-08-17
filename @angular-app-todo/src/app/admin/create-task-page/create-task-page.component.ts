@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+
 import { ITask } from "../../shared/interfaces";
+
 import { AlertService } from '../shared/services/alert-service';
 import { TasksService } from '../tasks.service';
 
@@ -29,20 +31,14 @@ export class CreateTaskPageComponent implements OnInit {
 
   ngOnInit(): void { }
 
-
-
   submit() {
     if (this.form.invalid) {
       return;
     }
 
     const task: ITask = {
-      // id: 213
       title: this.form.value.title,
       text: this.form.value.text,
-      // status: false,
-      //   date: new Date(),
-      //   order: 1
     }
 
     this.tasksService.create(task)
