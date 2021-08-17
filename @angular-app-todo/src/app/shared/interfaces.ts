@@ -12,3 +12,8 @@ export interface ITask {
   date?: any,
   order?: number,
 }
+
+export interface IContactForm {
+  email: number | string,
+  text: number | string
+}
