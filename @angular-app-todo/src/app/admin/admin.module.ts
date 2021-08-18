@@ -14,6 +14,7 @@ import { AlertLayoutComponent } from './shared/components/alert-layout/alert-lay
 import { AlertService } from "./shared/services/alert-service";
 import { FilterPipe } from "./shared/pipes/filter.pipe";
 import { DragDropModule } from "@angular/cdk/drag-drop";
+import { StyleFilter } from "./shared/directives/styleFilter.directive";
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
     EditPageComponent,
     SearchPipe,
     FilterPipe,
-    AlertLayoutComponent
+    AlertLayoutComponent,
+    StyleFilter
   ],
   providers: [
     AlertService

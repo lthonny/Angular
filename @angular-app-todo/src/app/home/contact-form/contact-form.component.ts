@@ -38,6 +38,7 @@ export class ContactFormComponent implements OnInit {
       text: this.form.value.text
     }
 
-    this.contactService.PostMessage(contactForm);
+    this.contactService.PostMessage(contactForm)
+      .subscribe(() => this.form.reset())
   }
 }

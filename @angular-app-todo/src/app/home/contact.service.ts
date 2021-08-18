@@ -13,7 +13,7 @@ export class ContactService {
   ) { }
 
   PostMessage(input: IContactForm) {
-    console.log(input);
-    // return this.http.post<IContactForm>('http://localhost:3000/contact', input);
+    return this.http
+      .post<IContactForm>('http://localhost:3000/contact', input);
   }
 }

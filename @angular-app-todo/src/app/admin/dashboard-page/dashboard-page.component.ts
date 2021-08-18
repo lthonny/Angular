@@ -19,7 +19,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   loading: boolean = false;
   error: string = '';
   filterStatus: string = 'all';
-  filterActive: boolean = false;
+  filterActive: boolean = true;
 
   taskSubscription!: Subscription;
   completeTask!: Subscription;
@@ -34,8 +34,14 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     this.fetchTasks();
   }
 
-  filter(filtered: string) {
+  filter(filtered: string, event: Event) {
     this.filterStatus = filtered;
+
+    // event.target.addClass('activeBtn');
+  }
+
+  toggleFilter() {
+    // this.filterStatus ===
   }
 
   fetchTasks() {

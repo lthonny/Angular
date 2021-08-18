@@ -14,6 +14,6 @@ export interface ITask {
 }
 
 export interface IContactForm {
-  email: number | string,
-  text: number | string
+  email: any,
+  text: any
 }

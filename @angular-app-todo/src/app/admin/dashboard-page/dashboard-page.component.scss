@@ -37,8 +37,41 @@ p {
   }
 }
 
+.example-box {
+  position: relative;
+}
 
+.edit {
+  position: absolute;
+  bottom: 0;
+}
 
+.btn-control {
+  display: flex;
+  // display: block;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  button {
+    color: #000;
+    background: transparent;
+    // display: block;
+  }
+
+  .btn-red {
+    color: #e04958;
+  }
+
+  .btn-completed {
+    color: #4257b2;
+  }
+}
+
+// .active {
+//   background-color: #4257b2;
+// }
 
 // drag and drop
 .example-list {
@@ -91,4 +124,9 @@ p {
   border: dotted 3px #999;
   min-height: 60px;
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+.activeBtn { 
+  background-color: blue;
 }
