@@ -6,6 +6,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SharedModule } from "../shared/shared.module";
 import { CommonModule } from "@angular/common";
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { CommonModule } from "@angular/common";
     HomePageComponent,
     ContentComponent,
     FooterComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    RegisterComponent
   ]
 })
 export class HomeModule { }

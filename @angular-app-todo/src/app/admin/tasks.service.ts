@@ -19,19 +19,19 @@ export class TasksService {
       .post<ITask>(`http://localhost:3000/tasks`, task);
   }
 
-  completeTask(id: string, status: boolean): Observable<ITask> {
-    return this.http
-      .put<ITask>(`http://localhost:3000/tasks/${id}`, { status })
-  }
+  // completeTask(id: string, status: boolean): Observable<ITask> {
+  //   return this.http
+  //     .put<ITask>(`http://localhost:3000/tasks/${id}`, { status })
+  // }
 
-  update(task: ITask) {
+  update(id: any, task: ITask) {
     return this.http
-      .put<ITask>(`http://localhost:3000/tasks/${task.id}`, task);
+      .put<ITask>(`http://localhost:3000/tasks/${id}`, task);
   }
 
   updateOrder(tasks: ITask[]) {
     return this.http
-      .post<ITask>(`http://localhost:3000/position/`, tasks);
+      .post<ITask>(`http://localhost:3000/order/`, tasks);
   }
 
   getById(id: string): Observable<ITask> {

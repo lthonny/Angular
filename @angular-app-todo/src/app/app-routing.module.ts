@@ -4,13 +4,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ErrorPageComponent } from "./shared/components/error-page/error-page.component";
 import { HeaderLayoutComponent } from "./shared/components/header-layout/header-layout.component";
 import { HomePageComponent } from "./home/home.component";
+import { RegisterComponent } from './home/register/register.component';
 
 const routes: Routes = [
   {
     path: '', component: HeaderLayoutComponent, children: [
       { path: '', redirectTo: '/', pathMatch: 'full' },
       { path: '', component: HomePageComponent },
-      { path: 'task/:id', component: HomePageComponent }
+      { path: 'task/:id', component: HomePageComponent },
+      { path: 'register', component: RegisterComponent }
     ]
   },
   {

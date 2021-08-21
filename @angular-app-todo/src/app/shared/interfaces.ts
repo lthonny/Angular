@@ -6,14 +6,15 @@ export interface IUser {
 
 export interface ITask {
   id?: string,
-  title: string,
-  text: string,
+  title?: string,
+  text?: string,
   status?: boolean,
-  date?: any,
   order?: number,
+  createdAt?: Date,
+  updatedAt?: Date
 }
 
 export interface IContactForm {
-  email: any,
-  text: any
+  email: string,
+  text: string
 }

@@ -13,6 +13,7 @@ import { AlertService } from '../shared/services/alert-service';
 })
 export class DashboardPageComponent implements OnInit, OnDestroy {
 
+  task!: ITask;
   tasks: ITask[] = [];
   searchTasks: string = '';
 
@@ -36,13 +37,9 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   filter(filtered: string, event: Event) {
     this.filterStatus = filtered;
-
-    // event.target.addClass('activeBtn');
   }
 
-  toggleFilter() {
-    // this.filterStatus ===
-  }
+  toggleFilter() { }
 
   fetchTasks() {
     return this.taskSubscription = this.tasksService.getAll()
@@ -53,15 +50,28 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
       });
   }
 
-  completedTask(id: string, status: boolean) {
-    this.completeTask = this.tasksService.completeTask(id, status)
-      .subscribe(() => {
-        this.fetchTasks();
-      })
+  completedTask(task: ITask) {
+    return this.tasksService.update(task.id, { status: !task.status })
+      .subscribe((task) => {
+        console.log(task)
+        this.tasks = this.tasks.map(_task => {
+          if (_task.id === task.id) {
+            return task;
+          }
+          return _task;
+        })
+        console.log('this.tasks ', this.tasks)
+      }, error => {
+        this.error = error.message;
+      });
+
+    // this.tasksService.update(task)
+    // .subscribe(updateStatusTask => console.log);
   }
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+    console.log(this.tasks);
     this.updatePositionDrops(this.tasks);
   }
 
@@ -75,7 +85,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   remove(id: string) {
     this.deleteSubscription = this.tasksService.remove(id).subscribe(() => {
       this.tasks = this.tasks.filter(task => task.id !== id);
-      this.alertService.danger('Task has been deleted');
+      // this.alertService.danger('Task has been deleted');
     })
   }
 

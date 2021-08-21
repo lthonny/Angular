@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Subscription } from 'rxjs';
 
 import { ITask } from "../../shared/interfaces";
 
@@ -11,7 +12,7 @@ import { TasksService } from '../tasks.service';
   templateUrl: './create-task-page.component.html',
   styleUrls: ['./create-task-page.component.scss']
 })
-export class CreateTaskPageComponent implements OnInit {
+export class CreateTaskPageComponent implements OnInit, OnDestroy {
 
   searchPosts: string = '';
 
@@ -44,7 +45,10 @@ export class CreateTaskPageComponent implements OnInit {
     this.tasksService.create(task)
       .subscribe(() => {
         this.form.reset();
-        this.alert.success('The post was created');
       })
+
+    console.log(task);
   }
+
+  ngOnDestroy() { }
 }

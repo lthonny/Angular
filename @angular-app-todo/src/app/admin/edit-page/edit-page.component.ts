@@ -46,12 +46,13 @@ export class EditPageComponent implements OnInit, OnDestroy {
     }
     this.submitted = true;
 
-    this.updateSub = this.tasksService.update({
+    this.updateSub = this.tasksService.update(2, {
       ...this.task,
       text: this.form.value.text,
       title: this.form.value.title
     })
       .subscribe(() => {
+        console.log(this.task)
         this.submitted = false;
       })
   }
