@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { IUser } from 'src/app/shared/interfaces';
-import { RegisterService } from 'src/app/shared/register.service';
+// import {} from ''
+import { IUser, ISingUp } from 'src/app/shared/interfaces';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -11,12 +12,15 @@ import { RegisterService } from 'src/app/shared/register.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerSubscription!: Subscription;
+  signUpSub!: Subscription;
 
   submitted: boolean = false;
   message: string = '';
 
   form: FormGroup = new FormGroup({
+    name: new FormControl(null, [
+      Validators.required
+    ]),
     email: new FormControl(null, [
       Validators.required,
       Validators.email
@@ -29,7 +33,8 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(
-    private registerService: RegisterService
+    private authService: AuthService
+    // private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -42,21 +47,24 @@ export class RegisterComponent implements OnInit {
 
     this.submitted = true;
 
-    const user: IUser = {
+    const user: ISingUp = {
+      name: this.form.value.name,
       email: this.form.value.email,
-      password: this.form.value.password,
-      returnSecureToken: true
+      password: this.form.value.password
     }
 
-    // this.registerSubscription = this.registerService.userRegistration(user)
-    //   .subscribe(() => console.log('пользователь добавлен'));
+    this.signUpSub = this.authService.signUp(user)
+      .subscribe(() => console.log('пользователь добавлен'));
 
-    console.log('user: ', user);
+    this.form.reset();
+    // console.log('user: ', user);
+
+    // router.navigate(['/login']);
   }
 
   ngOnDestroy() {
-    if (this.registerSubscription) {
-      this.registerSubscription.unsubscribe();
+    if (this.signUpSub) {
+      this.signUpSub.unsubscribe();
     }
   }
 }

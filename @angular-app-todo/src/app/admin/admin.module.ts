@@ -31,7 +31,7 @@ import { StyleFilter } from "./shared/directives/styleFilter.directive";
           { path: 'login', component: LoginPageComponent },
           { path: 'create', component: CreateTaskPageComponent },
           { path: 'dashboard', component: DashboardPageComponent },
-          { path: 'task/:id/edit', component: EditPageComponent },
+          { path: 'task/:id/edit', component: EditPageComponent }
         ]
       }
     ])

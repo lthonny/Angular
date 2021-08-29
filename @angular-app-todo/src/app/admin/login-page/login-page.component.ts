@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Subscription } from 'rxjs';
 
-import { IUser } from "../../shared/interfaces";
+import { AuthService } from 'src/app/shared/auth.service';
+import { ISingIn } from "../../shared/interfaces";
 
 
 @Component({
@@ -9,8 +11,9 @@ import { IUser } from "../../shared/interfaces";
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent implements OnInit, OnDestroy {
 
+  signIpSub!: Subscription;
   submitted: boolean = false;
   message: string = '';
 
@@ -26,7 +29,9 @@ export class LoginPageComponent implements OnInit {
   });
 
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -38,13 +43,20 @@ export class LoginPageComponent implements OnInit {
 
     this.submitted = true;
 
-    const user: IUser = {
+    const user: ISingIn = {
       email: this.form.value.email,
-      password: this.form.value.password,
-      returnSecureToken: true
+      password: this.form.value.password
     }
 
-    console.log('user: ', user);
+    this.signIpSub = this.authService.signIn(user)
+      .subscribe(() => console.log('пользователь авторизован'));
+
+    this.form.reset();
   }
 
+  ngOnDestroy() {
+    if (this.signIpSub) {
+      this.signIpSub.unsubscribe();
+    }
+  }
 }

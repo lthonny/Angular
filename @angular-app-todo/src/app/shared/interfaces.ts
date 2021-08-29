@@ -1,7 +1,6 @@
 export interface IUser {
   email: string,
-  password: number | string,
-  returnSecureToken?: boolean
+  password: number | string
 }
 
 export interface ITask {
@@ -9,7 +8,6 @@ export interface ITask {
   title?: string,
   text?: string,
   status?: boolean,
-  order?: number,
   createdAt?: Date,
   updatedAt?: Date
 }
@@ -17,4 +15,21 @@ export interface ITask {
 export interface IContactForm {
   email: string,
   text: string
+}
+
+export interface IAuthResponse {
+  accessToken: string;
+  refreshToken: string;
+  user: IUser;
+}
+
+export interface ISingUp {
+  name: string,
+  email: string,
+  password: string
+}
+
+export interface ISingIn {
+  email: string,
+  password: string
 }
